@@ -11,13 +11,16 @@ import {ProductsService} from "./services/products.service";
 export class AppComponent implements OnInit {
   title = 'my-angular-app';
   products: IProduct[] = []
+  loading=false
 
   constructor(private productsService: ProductsService) {
   }
 
   ngOnInit(): void {
+    this.loading=true
     this.productsService.getAll().subscribe(products => {
       this.products = products
     })
+    this.loading=false
   }
 }
