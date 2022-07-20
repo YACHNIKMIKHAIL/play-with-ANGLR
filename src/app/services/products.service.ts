@@ -20,7 +20,7 @@ export class ProductsService {
       params: new HttpParams({
         fromObject: {'limit': 5}
       })
-    }).pipe(delay(2000), catchError(this.errorHandler))
+    }).pipe(delay(2000), catchError(this.errorHandler.bind(this)))
   }
 
   private errorHandler(err: HttpErrorResponse) {
