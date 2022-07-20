@@ -5,13 +5,18 @@
 
   <button
     class="border py-2 px-4 rounded bg-yellow-300"
+    [ngClass]="{
+    'bg-yellow-300':!details,
+    'bg-pink-300':details
+    }"
     (click)="details=!details"
-  >{{!details ? 'Show Details' : 'Hidden'}}
+  >
+    {{!details ? 'Show' : 'Hidden'}} Details
   </button>
 
   <div *ngIf="details">
     <p>{{product.description}}</p>
-    <p>{{product.rating.rate}}</p>
+    <p>Rate: <span [ngStyle]="{fontWeight:'bold'}">{{product.rating.rate|number:'2.2-4'}}</span></p>
   </div>
 
 </div>
