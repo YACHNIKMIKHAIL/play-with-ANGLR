@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-product',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor() { }
+  form = new FormGroup({
+    title: new FormControl<string>('', [
+      Validators.required,
+      Validators.minLength(5)
+    ])
+  })
+
+  get title() {
+    console.log(this.form.controls.title.errors)
+    return this.form.controls.title as FormControl
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  submit() {
+    console.log((this.form.value.title));
+  }
 }
