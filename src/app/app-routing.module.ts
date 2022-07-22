@@ -3,14 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProductPageComponent} from "./pages/product-page/product-page.component";
 import {AboutPageComponent} from "./pages/about-page/about-page.component";
 
-enum RoutesEnum {
-  product = '',
-  about = 'about'
-}
 
 const routes: Routes = [
-  {path: RoutesEnum.product, component: ProductPageComponent},
-  {path: RoutesEnum.about, component: AboutPageComponent}
+  {path: '', component: ProductPageComponent},
+  {path: 'about', component: AboutPageComponent}
 ];
 
 @NgModule({
