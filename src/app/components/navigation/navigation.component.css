@@ -1,8 +1,0 @@
-.active-link {
-  color: #ffde0f;
-  margin-right: 2px;
-}
-
-:hover.active-link {
-  color: rgba(255, 222, 15, 0.44);
-}
